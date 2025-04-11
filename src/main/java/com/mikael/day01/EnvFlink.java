@@ -29,7 +29,7 @@ public class EnvFlink {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        // TODO �Ӽ��϶�ȡ����
+
         DataStreamSource<Integer> source = env
                 .fromElements(1,2,33); // ��Ԫ�ض�
 //                .fromCollection(Arrays.asList(1, 22, 3));  // �Ӽ��϶�
