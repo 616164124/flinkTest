@@ -19,8 +19,7 @@ public class MyMapFuncation implements MapFunction<WaterSensor, WaterSensor>, Fl
 
     @Override
     public void flatMap(WaterSensor value, Collector<String> out) throws Exception {
-        if(value.getId().equals("D")){
+
             out.collect(value.getId());
-        }
     }
 }
