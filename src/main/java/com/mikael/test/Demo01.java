@@ -5,7 +5,9 @@ import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 /**
  * @author
@@ -30,5 +32,7 @@ public class Demo01 {
     System.out.println(s);
     WaterSensor sensor1 = mapper.readValue(s, WaterSensor.class);
     System.out.println(sensor1.getId());
+
+    System.out.println(new SimpleDateFormat("yyyy-mm-dd HH:MM:SS").format(new Date().getTime()));
   }
 }
