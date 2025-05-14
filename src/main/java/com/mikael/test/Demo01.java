@@ -16,7 +16,6 @@ import java.util.Date;
  */
 public class Demo01 {
   private static final long serialVersionUID = 1L;
-
   public static void main(String[] args) throws JsonProcessingException {
 
     System.out.println(Duration.ofSeconds(5L));
@@ -28,11 +27,13 @@ public class Demo01 {
     Tuple3 tuple3 = new Tuple3();
     ObjectMapper mapper = new ObjectMapper();
     WaterSensor sensor = new WaterSensor("3d", 2L, 3);
-    String s = mapper.writeValueAsString(sensor);
+    String s = mapper.writeValueAsString(sensor);//javaBean转成string
     System.out.println(s);
-    WaterSensor sensor1 = mapper.readValue(s, WaterSensor.class);
+    WaterSensor sensor1 = mapper.readValue(s, WaterSensor.class);//String转成JavaBean
     System.out.println(sensor1.getId());
 
     System.out.println(new SimpleDateFormat("yyyy-mm-dd HH:MM:SS").format(new Date().getTime()));
+
+
   }
 }
