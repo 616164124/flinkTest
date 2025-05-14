@@ -27,7 +27,10 @@ import java.sql.SQLException;
  * @version 1.0
  * @date 2025/4/18
  */
+
+//将数据插入mysql表中
 public class MysqlSink1 {
+
 
   public static void main(String[] args) throws Exception {
     StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
