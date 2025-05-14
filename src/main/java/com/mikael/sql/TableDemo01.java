@@ -14,6 +14,7 @@ import org.apache.flink.types.Row;
  * @version 1.0
  * @date 2025/4/18
  */
+
 public class TableDemo01 {
   public static void main(String[] args) throws Exception {
     StreamExecutionEnvironment environment = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -22,20 +23,19 @@ public class TableDemo01 {
         environment.fromElements(
             new WaterSensor("a1", 1L, 1),
             new WaterSensor("a1", 1L, 1),
-            new WaterSensor("a2", 2L, 2),
+            new WaterSensor("a2", 9L, 2),
             new WaterSensor("a3", 3L, 3));
-
-
-
 
 
     StreamTableEnvironment tableEnvironment = StreamTableEnvironment.create(environment);
 
     Table table = tableEnvironment.fromDataStream(streamSource);
+    tableEnvironment.toDataStream(table).print();
     tableEnvironment.createTemporaryView("sernsor", table);
     int a=2;
+    //根据sql来执行，将结果存入tableResult
     TableResult tableResult = tableEnvironment.executeSql("select * from sernsor where ts> 2");
-    tableEnvironment.toDataStream(table).print();
+    tableResult.print();
     environment.execute();
   }
 }
